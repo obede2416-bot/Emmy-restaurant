@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ═══════════════════════════════════════
+       SEO Meta Tags
+  ═══════════════════════════════════════ -->
+  <title>EMMY Restaurant — Taste Excellence</title>
+  <meta name="description" content="Experience luxury fine dining at EMMY Restaurant. Fresh ingredients, exceptional dishes, and unforgettable moments in an elegant atmosphere." />
+  <meta name="keywords" content="EMMY restaurant, fine dining, luxury restaurant, reservation, menu, chef" />
+  <meta name="author" content="EMMY Restaurant" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://emmyrestaurant.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="EMMY Restaurant — Taste Excellence" />
+  <meta property="og:description" content="Luxury fine dining with fresh ingredients and exceptional service." />
+  <meta property="og:url"         content="https://emmyrestaurant.com/" />
+  <meta property="og:image"       content="assets/images/hero_restaurant.png" />
+  <meta property="og:site_name"   content="EMMY Restaurant" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="EMMY Restaurant" />
+  <meta name="twitter:description" content="Taste excellence at EMMY." />
+  <meta name="twitter:image"       content="assets/images/hero_restaurant.png" />
+
+  <!-- Favicon (emoji fallback) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>" />
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "EMMY",
+    "description": "Luxury fine dining restaurant offering exceptional cuisine in an elegant setting.",
+    "url": "https://emmyrestaurant.com",
+    "telephone": "+1-800-EMMY-EAT",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12 Gourmet Boulevard",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    },
+    "servesCuisine": ["Fine Dining", "Continental", "Modern European"],
+    "priceRange": "$$$",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "11:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"],
+        "opens": "11:00", "closes": "23:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday",
+        "opens": "10:00", "closes": "21:00" }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       PAGE LOADER
+  ═══════════════════════════════════════ -->
+  <div id="page-loader" role="status" aria-label="Loading EMMY Restaurant">
+    <div class="loader-logo" aria-hidden="true">EMMY</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CUSTOM CURSOR (desktop only)
+  ═══════════════════════════════════════ -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       SCROLL PROGRESS BAR
+  ═══════════════════════════════════════ -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0"></div>
+
+  <!-- ═══════════════════════════════════════
+       TOAST CONTAINER
+  ═══════════════════════════════════════ -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="#hero" aria-label="EMMY Restaurant - Go to home">EMMY</a>
+      </div>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#hero"         role="menuitem">Home</a></li>
+        <li role="none"><a href="#about"        role="menuitem">About</a></li>
+        <li role="none"><a href="#menu"         role="menuitem">Menu</a></li>
+        <li role="none"><a href="#gallery"      role="menuitem">Gallery</a></li>
+        <li role="none"><a href="#reservation"  role="menuitem">Reservations</a></li>
+        <li role="none"><a href="#testimonials" role="menuitem">Testimonials</a></li>
+        <li role="none"><a href="#chef"         role="menuitem">Chef</a></li>
+        <li role="none"><a href="#contact"      role="menuitem">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Search -->
+        <button data-search-trigger id="search-btn" aria-label="Open search" title="Search (Ctrl+K)">
+          <span aria-hidden="true">🔍</span>
+        </button>
+
+        <!-- Dark Mode -->
+        <button id="dark-mode-toggle" aria-label="Toggle dark/light mode">☀️</button>
+
+        <!-- Cart -->
+        <button id="cart-toggle" aria-label="Open shopping cart">
+          🛒
+          <span class="cart-count" id="cart-badge" aria-label="Items in cart">0</span>
+        </button>
+
+        <!-- Reserve CTA -->
+        <a href="#reservation" class="btn btn-secondary" style="padding:10px 22px;font-size:0.8rem;">
+          Reserve
+        </a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="menu-overlay" aria-hidden="true"></div>
+  <nav id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#hero">🏠 Home</a>
+    <a href="#about">📖 About</a>
+    <a href="#menu">🍽️ Menu</a>
+    <a href="#gallery">🖼️ Gallery</a>
+    <a href="#reservation">📅 Reservations</a>
+    <a href="#testimonials">⭐ Testimonials</a>
+    <a href="#chef">👨‍🍳 Our Chef</a>
+    <a href="#contact">📞 Contact</a>
+    <div style="margin-top:auto;padding-top:32px;">
+      <a href="#reservation" class="btn btn-secondary" style="display:block;text-align:center;">
+        Reserve a Table
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+
+    <!-- Parallax Background -->
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <!-- Gradient Overlay -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Floating Food Emojis -->
+    <div class="hero-float-elements" aria-hidden="true">
+      <span class="float-el">🥩</span>
+      <span class="float-el">🦞</span>
+      <span class="float-el">🍷</span>
+      <span class="float-el">🍰</span>
+      <span class="float-el">🥗</span>
+      <span class="float-el">✨</span>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span aria-hidden="true">⭐</span>
+        Fine Dining Experience
+      </div>
+
+      <h1 class="hero-title">
+        <span id="hero-typing-text" class="typing-cursor">Taste Excellence at EMMY</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Fresh ingredients. Exceptional dining. Unforgettable moments.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#reservation" class="btn btn-secondary" id="hero-reserve-btn">
+          📅 Reserve Table
+        </a>
+        <a href="#menu" class="btn btn-outline" id="hero-menu-btn">
+          🍽️ View Menu
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left: Image -->
+        <div class="about-image-wrap section-enter-left">
+          <img src="assets/images/about_restaurant.png"
+               alt="EMMY Restaurant elegant dining room"
+               loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85'" />
+          <div class="about-image-badge" aria-label="20 plus years of experience">
+            <span class="badge-num">20+</span>
+            <span class="badge-text">Years of Excellence</span>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="about-text section-enter-right">
+          <div class="section-header">
+            <span class="section-tag">Who We Are</span>
+            <h2 class="section-title" id="about-title">Our <span>Story</span></h2>
+            <div class="gold-divider"></div>
+          </div>
+
+          <p class="about-desc">
+            EMMY was born from a passion for extraordinary food and the belief that every meal is an opportunity to create a memory. Founded in 2004 by Chef Emmanuel Rousseau, we have built our reputation on sourcing the finest seasonal ingredients and transforming them into dishes that transcend the ordinary.
+          </p>
+          <p class="about-desc">
+            Our team of world-class chefs brings decades of Michelin-starred experience to every plate, while our front-of-house team delivers service that is both warm and impeccably professional. At EMMY, dining is not just a meal — it is an experience.
+          </p>
+
+          <div class="about-signature" aria-hidden="true">Emmanuel Rousseau</div>
+
+          <!-- Statistics -->
+          <div class="about-stats" role="list">
+            <div class="stat-card" role="listitem" data-aos="zoom-in" data-aos-delay="0">
+              <div class="stat-number"
+                   data-target="20"
+                   data-suffix="+"
+                   aria-label="Over 20 years experience">0+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card" role="listitem" data-aos="zoom-in" data-aos-delay="100">
+              <div class="stat-number"
+                   data-target="100"
+                   data-suffix="+"
+                   aria-label="Over 100 delicious dishes">0+</div>
+              <div class="stat-label">Delicious Dishes</div>
+            </div>
+            <div class="stat-card" role="listitem" data-aos="zoom-in" data-aos-delay="200">
+              <div class="stat-number"
+                   data-target="50"
+                   data-suffix="K+"
+                   aria-label="Over 50 thousand happy customers">0K+</div>
+              <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-card" role="listitem" data-aos="zoom-in" data-aos-delay="300">
+              <div class="stat-number"
+                   data-target="4.9"
+                   data-suffix="★"
+                   aria-label="4.9 star average rating">0★</div>
+              <div class="stat-label">Average Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MENU SECTION
+  ═══════════════════════════════════════ -->
+  <section id="menu" class="section" aria-labelledby="menu-title">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title" id="menu-title">Our <span>Menu</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Crafted with passion, served with elegance. Explore our full menu.</p>
+      </div>
+
+      <!-- Search -->
+      <div class="menu-search-wrap" data-aos="fade-up" data-aos-delay="100">
+        <input type="search"
+               id="menu-search"
+               placeholder="Search dishes, drinks, desserts..."
+               aria-label="Search menu items" />
+        <span class="search-icon" aria-hidden="true">🔍</span>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="menu-filter" role="tablist" aria-label="Filter menu by category" data-aos="fade-up" data-aos-delay="150">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">🍽️ All</button>
+        <button class="filter-btn" data-filter="breakfast" role="tab" aria-selected="false">🌅 Breakfast</button>
+        <button class="filter-btn" data-filter="lunch"     role="tab" aria-selected="false">🌞 Lunch</button>
+        <button class="filter-btn" data-filter="dinner"    role="tab" aria-selected="false">🌙 Dinner</button>
+        <button class="filter-btn" data-filter="desserts"  role="tab" aria-selected="false">🍰 Desserts</button>
+        <button class="filter-btn" data-filter="drinks"    role="tab" aria-selected="false">🍷 Drinks</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div id="menu-grid"
+           class="menu-grid"
+           role="region"
+           aria-label="Menu items"
+           aria-live="polite">
+        <!-- Populated by menu.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SPECIAL OFFERS
+  ═══════════════════════════════════════ -->
+  <section id="offers" class="section" aria-labelledby="offers-title">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Limited Time</span>
+        <h2 class="section-title" id="offers-title">Special <span>Offers</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Exclusive deals crafted for an extraordinary dining experience.</p>
+      </div>
+
+      <div class="offers-grid">
+
+        <!-- Offer 1: Weekend Buffet -->
+        <div class="offer-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="offer-badge">This Weekend</span>
+          <div class="offer-icon" aria-hidden="true">🍽️</div>
+          <h3 class="offer-title">Weekend Grand Buffet</h3>
+          <p class="offer-desc">Unlimited access to over 60 premium dishes. Champagne included with every seating.</p>
+          <div class="offer-discount">20% OFF</div>
+          <div class="offer-countdown" 
+               data-countdown="2026-07-27T23:59:00"
+               aria-label="Offer countdown timer">
+            <div class="countdown-unit">
+              <div class="countdown-num cd-days">00</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <span class="countdown-sep" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num cd-hours">00</div>
+              <div class="countdown-label">Hrs</div>
+            </div>
+            <span class="countdown-sep" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num cd-mins">00</div>
+              <div class="countdown-label">Min</div>
+            </div>
+            <span class="countdown-sep" aria-hidden="true">:</span>
+            <div class="countdown-unit">
+              <div class="countdown-num cd-secs">00</div>
+              <div class="countdown-label">Sec</div>
+            </div>
+          </div>
+          <a href="#reservation" class="btn btn-gold-outline" style="margin-top:20px;width:100%;justify-content:center;">
+            Claim Offer
+          </a>
+        </div>
+
+        <!-- Offer 2: Free Dessert -->
+        <div class="offer-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="offer-badge">Always On</span>
+          <div class="offer-icon" aria-hidden="true">🍰</div>
+          <h3 class="offer-title">Free Signature Dessert</h3>
+          <p class="offer-desc">Enjoy a complimentary dessert with every dinner reservation for 2 or more guests.</p>
+          <div class="offer-discount">FREE</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px;">Valid for dinner only · Dine-in</p>
+          <a href="#reservation" class="btn btn-gold-outline" style="margin-top:20px;width:100%;justify-content:center;">
+            Book Now
+          </a>
+        </div>
+
+        <!-- Offer 3: Happy Hour -->
+        <div class="offer-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="offer-badge">Mon–Fri</span>
+          <div class="offer-icon" aria-hidden="true">🍷</div>
+          <h3 class="offer-title">Happy Hour Cocktails</h3>
+          <p class="offer-desc">Premium cocktails and fine wines at half price every weekday from 5–7pm.</p>
+          <div class="offer-discount">50% OFF</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px;">5:00 PM – 7:00 PM · Bar seating</p>
+          <a href="#reservation" class="btn btn-gold-outline" style="margin-top:20px;width:100%;justify-content:center;">
+            Reserve Seat
+          </a>
+        </div>
+
+        <!-- Offer 4: Anniversary -->
+        <div class="offer-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="offer-badge">Special Event</span>
+          <div class="offer-icon" aria-hidden="true">💍</div>
+          <h3 class="offer-title">Anniversary Package</h3>
+          <p class="offer-desc">Celebrate love with a private table, champagne tower, and our special tasting menu.</p>
+          <div class="offer-discount">Premium</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px;">By reservation only · Private room</p>
+          <a href="#reservation" class="btn btn-gold-outline" style="margin-top:20px;width:100%;justify-content:center;">
+            Plan Event
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CHEF SECTION
+  ═══════════════════════════════════════ -->
+  <section id="chef" class="section" aria-labelledby="chef-title">
+    <div class="container">
+      <div class="chef-grid">
+
+        <!-- Left: Image -->
+        <div class="chef-image-wrap section-enter-left">
+          <div class="chef-image-frame">
+            <img src="assets/images/chef_portrait.png"
+                 alt="Executive Chef Emmanuel Rousseau at EMMY Restaurant"
+                 loading="lazy"
+                 onerror="this.src='https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=85'" />
+            <div class="chef-awards" aria-label="Chef awards">
+              <p>🏅 Awards & Recognition</p>
+              <div class="award-list">
+                <span class="award-item">Michelin Star 2019</span>
+                <span class="award-item">James Beard Award 2021</span>
+                <span class="award-item">Chef of the Year 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="chef-info section-enter-right">
+          <div class="section-header">
+            <span class="section-tag">Meet The Artist</span>
+            <h2 class="section-title" id="chef-title">Behind The <span>Kitchen</span></h2>
+            <div class="gold-divider"></div>
+          </div>
+
+          <h3 class="chef-name">Emmanuel Rousseau</h3>
+          <p class="chef-title">Executive Chef & Founder</p>
+
+          <p class="chef-bio">
+            Born in Lyon, France, Chef Emmanuel trained at the legendary École Ferrandi Paris before earning his stripes in Michelin-starred kitchens across Europe. His philosophy is simple: respect the ingredient, honour the season, and cook from the soul.
+          </p>
+          <p class="chef-bio">
+            After two decades of honing his craft across three continents, Emmanuel founded EMMY in 2004 — a restaurant that embodies his belief that the finest dining experiences begin with exceptional produce, honest technique, and unwavering dedication.
+          </p>
+
+          <div class="chef-stats" aria-label="Chef statistics">
+            <div class="chef-stat">
+              <div class="num" data-target="20" data-suffix="+">20+</div>
+              <div class="label">Years of Experience</div>
+            </div>
+            <div class="chef-stat">
+              <div class="num" data-target="3" data-suffix="★">3★</div>
+              <div class="label">Michelin Stars</div>
+            </div>
+            <div class="chef-stat">
+              <div class="num" data-target="12" data-suffix="+">12+</div>
+              <div class="label">Awards Won</div>
+            </div>
+          </div>
+
+          <div class="chef-signature" aria-label="Chef signature">Emmanuel ✦</div>
+
+          <div class="chef-socials" aria-label="Chef social media links">
+            <a href="#" aria-label="Chef on Instagram" title="Instagram">📷</a>
+            <a href="#" aria-label="Chef on Twitter"   title="Twitter">🐦</a>
+            <a href="#" aria-label="Chef on LinkedIn"  title="LinkedIn">💼</a>
+            <a href="#" aria-label="Chef on YouTube"   title="YouTube">▶️</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       GALLERY SECTION
+  ═══════════════════════════════════════ -->
+  <section id="gallery" class="section" aria-labelledby="gallery-title">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Visual Story</span>
+        <h2 class="section-title" id="gallery-title">Our <span>Gallery</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">A glimpse into the world of EMMY — where every detail is art.</p>
+      </div>
+
+      <!-- Gallery Grid (populated by gallery.js) -->
+      <div id="gallery-grid"
+           class="gallery-grid"
+           role="region"
+           aria-label="Restaurant photo gallery">
+      </div>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+      <button class="lightbox-close" aria-label="Close image viewer">✕</button>
+      <button class="lightbox-prev" aria-label="Previous image">‹</button>
+      <img class="lightbox-img" src="" alt="" />
+      <button class="lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════ -->
+  <section id="testimonials" class="section" aria-labelledby="testimonials-title">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Guest Reviews</span>
+        <h2 class="section-title" id="testimonials-title">What Our <span>Guests</span> Say</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="testimonials-carousel" role="region" aria-label="Customer testimonials carousel">
+        <div class="testimonial-track" aria-live="polite">
+
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">
+                "EMMY is simply in a class of its own. The wagyu tenderloin was the most extraordinary piece of meat I've ever tasted — perfectly cooked, impeccably presented. The service was exceptional from the moment we walked in."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg"
+                     alt="Portrait of Sophia Martinez"
+                     loading="lazy" />
+                <div class="author-info">
+                  <p class="name">Sophia Martinez</p>
+                  <p class="role">Food Critic, NYC Times</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">
+                "We celebrated our anniversary at EMMY and it was absolutely magical. The private dining room, the chef's tasting menu, the sommelier's wine pairings — every moment was crafted to perfection. We will return every year."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                     alt="Portrait of James & Claire Thornton"
+                     loading="lazy" />
+                <div class="author-info">
+                  <p class="name">James & Claire Thornton</p>
+                  <p class="role">Loyal Guests since 2015</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">
+                "As a chef myself, I rarely find a restaurant that genuinely moves me. EMMY does. Chef Emmanuel's technique is flawless, his ingredients impeccable, and his passion palpable in every single dish that arrives at the table."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/23.jpg"
+                     alt="Portrait of Marco Bellini"
+                     loading="lazy" />
+                <div class="author-info">
+                  <p class="name">Marco Bellini</p>
+                  <p class="role">Head Chef, Oro Milano</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">
+                "The chocolate lava cake at EMMY changed my life. I'm only half joking. The warm Valrhona chocolate, the perfectly tempered ice cream, the gold leaf — it's a spiritual experience disguised as dessert."
+              </p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg"
+                     alt="Portrait of Amara Osei"
+                     loading="lazy" />
+                <div class="author-info">
+                  <p class="name">Amara Osei</p>
+                  <p class="role">Travel & Lifestyle Blogger</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="carousel-controls">
+          <button class="carousel-btn carousel-prev" aria-label="Previous testimonial">‹</button>
+          <div class="carousel-dots" role="tablist" aria-label="Testimonial navigation dots">
+            <button class="carousel-dot active" role="tab" aria-label="Testimonial 1" aria-selected="true"></button>
+            <button class="carousel-dot"        role="tab" aria-label="Testimonial 2" aria-selected="false"></button>
+            <button class="carousel-dot"        role="tab" aria-label="Testimonial 3" aria-selected="false"></button>
+            <button class="carousel-dot"        role="tab" aria-label="Testimonial 4" aria-selected="false"></button>
+          </div>
+          <button class="carousel-btn carousel-next" aria-label="Next testimonial">›</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       RESERVATION SECTION
+  ═══════════════════════════════════════ -->
+  <section id="reservation" class="section" aria-labelledby="reservation-title">
+    <div class="container">
+      <div class="reservation-wrap">
+
+        <!-- Info -->
+        <div class="reservation-info section-enter-left">
+          <div class="section-header">
+            <span class="section-tag">Book a Table</span>
+            <h2 class="section-title" id="reservation-title">Reserve Your <span>Table</span></h2>
+            <div class="gold-divider"></div>
+          </div>
+
+          <div class="reservation-detail">
+            <div class="detail-icon" aria-hidden="true">📍</div>
+            <div class="detail-text">
+              <strong>Our Location</strong>
+              <span>12 Gourmet Boulevard, New York, NY 10001</span>
+            </div>
+          </div>
+
+          <div class="reservation-detail">
+            <div class="detail-icon" aria-hidden="true">📞</div>
+            <div class="detail-text">
+              <strong>Phone Reservations</strong>
+              <span><a href="tel:+18004369328" style="color:var(--secondary);">+1 800 EMMY EAT</a></span>
+            </div>
+          </div>
+
+          <div class="reservation-detail">
+            <div class="detail-icon" aria-hidden="true">⏰</div>
+            <div class="detail-text">
+              <strong>Opening Hours</strong>
+              <span>Mon–Thu: 11am–10pm</span>
+              <span>Fri–Sat: 11am–11:30pm</span>
+              <span>Sun: 10am–9pm</span>
+            </div>
+          </div>
+
+          <div class="reservation-detail">
+            <div class="detail-icon" aria-hidden="true">ℹ️</div>
+            <div class="detail-text">
+              <strong>Dress Code</strong>
+              <span>Smart casual to formal attire</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="reservation-form-card section-enter-right">
+          <form id="reservation-form" novalidate aria-label="Table reservation form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-name">Full Name *</label>
+                <input type="text"
+                       id="res-name"
+                       name="name"
+                       placeholder="Your full name"
+                       autocomplete="name"
+                       required
+                       aria-required="true" />
+                <span class="form-error" role="alert">Please enter your full name.</span>
+              </div>
+              <div class="form-group">
+                <label for="res-phone">Phone *</label>
+                <input type="tel"
+                       id="res-phone"
+                       name="phone"
+                       placeholder="+1 (555) 000-0000"
+                       autocomplete="tel"
+                       required
+                       aria-required="true" />
+                <span class="form-error" role="alert">Enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="res-email">Email Address *</label>
+              <input type="email"
+                     id="res-email"
+                     name="email"
+                     placeholder="you@example.com"
+                     autocomplete="email"
+                     required
+                     aria-required="true" />
+              <span class="form-error" role="alert">Enter a valid email address.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-date">Date *</label>
+                <input type="date"
+                       id="res-date"
+                       name="date"
+                       required
+                       aria-required="true" />
+                <span class="form-error" role="alert">Please select a future date.</span>
+              </div>
+              <div class="form-group">
+                <label for="res-time">Time *</label>
+                <select id="res-time" name="time" required aria-required="true">
+                  <option value="">Select time</option>
+                  <option value="11:00 AM">11:00 AM</option>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="12:30 PM">12:30 PM</option>
+                  <option value="1:00 PM">1:00 PM</option>
+                  <option value="1:30 PM">1:30 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="6:30 PM">6:30 PM</option>
+                  <option value="7:00 PM">7:00 PM</option>
+                  <option value="7:30 PM">7:30 PM</option>
+                  <option value="8:00 PM">8:00 PM</option>
+                  <option value="8:30 PM">8:30 PM</option>
+                  <option value="9:00 PM">9:00 PM</option>
+                </select>
+                <span class="form-error" role="alert">Please select a time.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="res-guests">Number of Guests *</label>
+              <select id="res-guests" name="guests" required aria-required="true">
+                <option value="">Select guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7">7 Guests</option>
+                <option value="8">8 Guests</option>
+                <option value="9-15">9–15 Guests (Group)</option>
+                <option value="16-20">16–20 Guests (Event)</option>
+              </select>
+              <span class="form-error" role="alert">Please select number of guests.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="res-requests">Special Requests</label>
+              <textarea id="res-requests"
+                        name="requests"
+                        rows="3"
+                        placeholder="Allergies, dietary requirements, celebrations, seating preferences..."
+                        aria-label="Special requests or dietary requirements"></textarea>
+            </div>
+
+            <button type="submit" id="res-submit-btn" class="btn btn-secondary" style="width:100%;justify-content:center;padding:16px;">
+              📅 Reserve My Table
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════ -->
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title" id="contact-title">Contact <span>Us</span></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">We'd love to hear from you. Reach out anytime.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Info Card -->
+        <div class="contact-info-card" data-aos="fade-right">
+          <h3>Restaurant Information</h3>
+
+          <div class="contact-item">
+            <div class="c-icon" aria-hidden="true">📍</div>
+            <div class="c-text">
+              <strong>Address</strong>
+              <span>12 Gourmet Boulevard</span>
+              <span>New York, NY 10001, USA</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon" aria-hidden="true">📞</div>
+            <div class="c-text">
+              <strong>Telephone</strong>
+              <span><a href="tel:+18004369328" style="color:var(--secondary);">+1 (800) EMMY-EAT</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon" aria-hidden="true">✉️</div>
+            <div class="c-text">
+              <strong>Email</strong>
+              <span><a href="mailto:hello@emmyrestaurant.com" style="color:var(--secondary);">hello@emmyrestaurant.com</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon" aria-hidden="true">⏰</div>
+            <div class="c-text">
+              <strong>Opening Hours</strong>
+              <span>Mon–Thu: 11:00 AM – 10:00 PM</span>
+              <span>Fri–Sat: 11:00 AM – 11:30 PM</span>
+              <span>Sun: 10:00 AM – 9:00 PM</span>
+            </div>
+          </div>
+
+          <!-- Map Embed Placeholder -->
+          <div class="map-embed" aria-label="Map showing EMMY Restaurant location">
+            <div style="text-align:center;">
+              <div style="font-size:2.5rem;margin-bottom:8px;">🗺️</div>
+              <strong style="color:var(--secondary);display:block;margin-bottom:4px;">EMMY Restaurant</strong>
+              <span style="font-size:0.8rem;">12 Gourmet Boulevard, New York</span>
+              <br/>
+              <a href="https://maps.google.com/?q=New+York+Restaurant" 
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn btn-gold-outline" 
+                 style="margin-top:12px;padding:8px 16px;font-size:0.75rem;display:inline-flex;">
+                Open in Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card" data-aos="fade-left">
+          <h3>Send Us a Message</h3>
+
+          <form id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="con-name">Full Name</label>
+                <input type="text" id="con-name" name="name" placeholder="Your name" autocomplete="name" required />
+                <span class="form-error">Please enter your name.</span>
+              </div>
+              <div class="form-group">
+                <label for="con-email">Email</label>
+                <input type="email" id="con-email" name="email" placeholder="your@email.com" autocomplete="email" required />
+                <span class="form-error">Enter a valid email.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="con-subject">Subject</label>
+              <input type="text" id="con-subject" name="subject" placeholder="How can we help?" />
+            </div>
+
+            <div class="form-group">
+              <label for="con-message">Message</label>
+              <textarea id="con-message" name="message" rows="5"
+                        placeholder="Tell us about your enquiry..." required></textarea>
+              <span class="form-error">Please write a message.</span>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="btn btn-secondary" style="width:100%;justify-content:center;padding:16px;">
+              📨 Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       NEWSLETTER
+  ═══════════════════════════════════════ -->
+  <section id="newsletter" aria-labelledby="newsletter-title">
+    <div class="container newsletter-inner">
+      <span class="section-tag">Stay in Touch</span>
+      <h2 class="section-title" id="newsletter-title" style="color:#fff;">Join the EMMY <span>Family</span></h2>
+      <p class="section-desc">
+        Subscribe for exclusive offers, seasonal menu previews, and behind-the-scenes content from Chef Emmanuel.
+      </p>
+
+      <form id="newsletter-form" novalidate aria-label="Newsletter subscription form">
+        <div class="newsletter-form">
+          <input type="email"
+                 id="newsletter-email"
+                 name="email"
+                 placeholder="Enter your email address"
+                 autocomplete="email"
+                 required
+                 aria-required="true"
+                 aria-label="Email address for newsletter" />
+          <button type="submit" class="btn">Subscribe ✨</button>
+        </div>
+      </form>
+
+      <p class="newsletter-success" role="status" aria-live="polite">
+        ✅ Thank you for subscribing! Welcome to the EMMY family.
+      </p>
+
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:16px;">
+        We respect your privacy. Unsubscribe anytime.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="logo" aria-label="EMMY Restaurant">EMMY</div>
+          <p>Born from a love of exceptional food and refined hospitality. At EMMY, every table is a stage, every dish a performance.</p>
+          <div class="footer-socials" aria-label="EMMY social media">
+            <a href="#" aria-label="EMMY on Instagram"  title="Instagram">📷</a>
+            <a href="#" aria-label="EMMY on Facebook"   title="Facebook">📘</a>
+            <a href="#" aria-label="EMMY on Twitter"    title="Twitter">🐦</a>
+            <a href="#" aria-label="EMMY on TikTok"     title="TikTok">🎵</a>
+            <a href="#" aria-label="EMMY on YouTube"    title="YouTube">▶️</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#hero">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reservation">Reservations</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Menu Categories -->
+        <div class="footer-col">
+          <h4>Our Menu</h4>
+          <nav class="footer-links" aria-label="Menu categories">
+            <a href="#menu">Breakfast</a>
+            <a href="#menu">Lunch</a>
+            <a href="#menu">Dinner</a>
+            <a href="#menu">Desserts</a>
+            <a href="#menu">Cocktails</a>
+            <a href="#menu">Wine List</a>
+          </nav>
+        </div>
+
+        <!-- Hours -->
+        <div class="footer-col">
+          <h4>Opening Hours</h4>
+          <div class="footer-hours" aria-label="Restaurant opening hours">
+            <p>Monday – Thursday <span>11am – 10pm</span></p>
+            <p>Friday – Saturday  <span>11am – 11:30pm</span></p>
+            <p>Sunday             <span>10am – 9pm</span></p>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:16px;">
+            Kitchen closes 30 min before closing.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2024 <span>EMMY Restaurant</span>. All rights reserved.</p>
+        <p>Crafted with ❤️ by <span>EMMY Design Studio</span></p>
+        <p>
+          <a href="#" style="color:var(--text-muted);font-size:0.8rem;">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="#" style="color:var(--text-muted);font-size:0.8rem;">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       FLOATING ELEMENTS
+  ═══════════════════════════════════════ -->
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top of page">↑</button>
+
+  <!-- WhatsApp Float -->
+  <a id="whatsapp-float"
+     href="https://wa.me/18004369328?text=Hello%20EMMY!%20I%20would%20like%20to%20make%20a%20reservation."
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with EMMY on WhatsApp">
+    💬
+  </a>
+
+  <!-- Reserve Float -->
+  <a id="reserve-float" href="#reservation" aria-label="Make a quick table reservation">
+    📅 Reserve Now
+  </a>
+
+  <!-- ═══════════════════════════════════════
+       CART SIDEBAR
+  ═══════════════════════════════════════ -->
+  <aside id="cart-sidebar"
+         role="complementary"
+         aria-label="Shopping cart"
+         aria-hidden="true">
+    <div class="cart-header">
+      <h3>🛒 Your Order</h3>
+      <button class="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items" role="list" aria-label="Cart items">
+      <div class="cart-empty">
+        <span class="empty-icon">🛒</span>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">$0.00</strong>
+      </div>
+      <div class="cart-tax">
+        <span>Tax (10%)</span>
+        <strong id="cart-tax">$0.00</strong>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button class="checkout-btn" aria-label="Proceed to checkout">
+        💳 Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════
+       MODALS
+  ═══════════════════════════════════════ -->
+
+  <!-- Reservation Confirmation Modal -->
+  <div id="reservation-modal"
+       class="modal-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="res-modal-title"
+       aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-icon" aria-hidden="true">✅</div>
+      <h2 id="res-modal-title">Reservation Confirmed!</h2>
+      <p>
+        Thank you, <strong id="conf-name"></strong>! Your table for <strong id="conf-guests"></strong>
+        is reserved on <strong id="conf-date"></strong> at <strong id="conf-time"></strong>.
+        A confirmation email will be sent to you shortly.
+      </p>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin-top:-12px;margin-bottom:20px;">
+        Reference: <strong id="conf-ref" style="color:var(--secondary);"></strong>
+      </p>
+      <button class="btn btn-secondary modal-close-btn" style="width:100%;justify-content:center;">
+        Wonderful, Thank You! 🎉
+      </button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal"
+       class="modal-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="checkout-title"
+       aria-hidden="true">
+    <div class="modal-box checkout-modal-content" style="max-width:520px;text-align:left;">
+      <div class="modal-icon" style="margin-left:0;" aria-hidden="true">🧾</div>
+      <h2 id="checkout-title" style="text-align:left;">Review Your Order</h2>
+
+      <div class="checkout-items-preview" aria-label="Order summary"></div>
+
+      <div class="checkout-totals" style="margin-top:16px;">
+        <div class="row"><span>Subtotal</span><span>$0.00</span></div>
+        <div class="row"><span>Tax (10%)</span><span>$0.00</span></div>
+        <div class="row grand"><span>Grand Total</span><span>$0.00</span></div>
+      </div>
+
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:16px 0 8px;">Select payment method:</p>
+      <div class="payment-methods">
+        <button class="pay-btn stripe" data-method="stripe" aria-label="Pay with Stripe">
+          💳 Pay with Stripe
+        </button>
+        <button class="pay-btn paystack" data-method="paystack" aria-label="Pay with Paystack">
+          🏦 Pay with Paystack
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Modal -->
+  <div id="order-success-modal"
+       class="modal-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="order-success-title"
+       aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-icon" aria-hidden="true">🎉</div>
+      <h2 id="order-success-title">Order Confirmed!</h2>
+      <p>
+        Your order <strong id="order-id" class="order-id" style="color:var(--secondary);"></strong> has been placed successfully. 
+        Our team will begin preparing your meal shortly.
+      </p>
+      <button class="btn btn-secondary modal-close-btn" style="width:100%;justify-content:center;margin-top:8px;">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       GLOBAL SEARCH OVERLAY
+  ═══════════════════════════════════════ -->
+  <div id="search-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Search menu"
+       aria-hidden="true">
+    <div class="search-container">
+      <div class="search-input-wrap">
+        <input type="search"
+               id="global-search-input"
+               placeholder="Search dishes, drinks, desserts... (Ctrl+K)"
+               aria-label="Search menu items" />
+        <button class="search-close-btn" aria-label="Close search">✕</button>
+      </div>
+      <div id="search-results"
+           class="search-results"
+           role="listbox"
+           aria-label="Search results"
+           aria-live="polite">
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT FORM HANDLER (inline script)
+  ═══════════════════════════════════════ -->
+  <script>
+    // Contact form handler (modular, async-ready for EmailJS)
+    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('con-name')?.value.trim();
+      const email   = document.getElementById('con-email')?.value.trim();
+      const message = document.getElementById('con-message')?.value.trim();
+
+      let valid = true;
+
+      if (!name || name.length < 2) {
+        document.getElementById('con-name')?.closest('.form-group')?.classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('con-name')?.closest('.form-group')?.classList.remove('error');
+      }
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('con-email')?.closest('.form-group')?.classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('con-email')?.closest('.form-group')?.classList.remove('error');
+      }
+
+      if (!message) {
+        document.getElementById('con-message')?.closest('.form-group')?.classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('con-message')?.closest('.form-group')?.classList.remove('error');
+      }
+
+      if (!valid) return;
+
+      // Placeholder: EmailJS / Firebase send
+      // emailjs.send(SERVICE_ID, TEMPLATE_ID, { name, email, message });
+
+      window.EmmyApp?.Toast.show('Message Sent! 📨', 'We\'ll get back to you within 24 hours.', 'success');
+      this.reset();
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPTS (in dependency order)
+  ═══════════════════════════════════════ -->
+  <script src="js/app.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/reservation.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>
